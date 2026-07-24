@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>狼人殺 - 懸疑推理之夜</title>
+    <title>狼人殺</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* 懸疑風格自訂樣式 */
         body {
             font-family: 'Noto Serif TC', serif;
-            background-color: #0f172a; /* 深邃夜空藍 */
+            background-color: #0f172a;
             color: #e2e8f0;
             background-image: 
                 radial-gradient(circle at 50% 0%, #1e293b 0%, transparent 50%),
                 linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(0, 0, 0, 0.95)),
-                url('https://www.transparenttextures.com/patterns/stardust.png'); /* 增加一點星塵紋理質感 */
+                url('https://www.transparenttextures.com/patterns/stardust.png');
             background-attachment: fixed;
             min-height: 100vh;
         }
 
-        /* 霓虹/懸疑文字發光效果 */
         .text-glow {
             text-shadow: 0 0 10px rgba(185, 28, 28, 0.7), 0 0 20px rgba(185, 28, 28, 0.5);
         }
@@ -37,7 +35,7 @@
         }
         .char-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.2); /* 微微透出紅光 */
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.2);
             border-color: #7f1d1d;
         }
 
@@ -94,7 +92,6 @@
             background: #991b1b; 
         }
 
-        /* 血液飛濺裝飾元素 (CSS繪製簡單裝飾) */
         .blood-splatter {
             position: absolute;
             background-color: #7f1d1d;
@@ -117,7 +114,7 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchPage('home')">
                     <span class="text-2xl font-black text-red-600 tracking-widest text-glow">狼人殺</span>
-                    <span class="ml-2 text-sm text-slate-400">懸疑推理之夜</span>
+                    <span class="ml-2 text-sm text-slate-400">角色板子規則大全</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
@@ -156,7 +153,8 @@
                     天黑請閉眼
                 </h1>
                 <p class="mt-4 max-w-2xl text-xl text-slate-300 mx-auto leading-relaxed mb-12">
-                    在謊言與真相交織的村莊裡，誰是潛伏在暗處的狼人？誰又是引領村民走向光明的神職？<br>
+                    在謊言與真相交織的村莊裡，誰是潛伏在暗處的狼人？<br>
+                    誰又是引領村民走向光明的神職？<br>
                     準備好你的邏輯與口才，這是一場沒有硝煙的戰爭。
                 </p>
                 
@@ -212,38 +210,220 @@
                     <!-- 中: 名字 -->
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
                         <h3 class="text-2xl font-bold text-red-500 tracking-wider">狼人</h3>
-                        <span class="text-sm text-slate-500 uppercase tracking-widest">Werewolf</span>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">一般的小狼</span>
                     </div>
 
                     <div class="vertical-divider hidden md:block h-24"></div>
                     
                     <!-- 右: 介紹 (最大空間，支援換行) -->
                     <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
-                        【陣營】邪惡陣營 (狼人陣營)
+                        【陣營】邪惡陣營
                         【技能】
                         每天夜裡可以與其他狼人同伴睜眼互相確認身分。
-                        每晚可以共同討論並襲擊（殺害）場上的一名玩家。可以選擇空刀（不殺任何人）或自刀（殺死狼人自己，通常用於騙取女巫解藥）。
-                        【目標】屠城（殺死所有好人）或屠邊（殺死所有神職或所有平民）。
+                        每晚可以共同討論並襲擊場上的一名玩家。可以選擇空刀或自刀。
+                        自爆規則依各板子規定。
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
                     </div>
                 </div>
 
-                <!-- 角色卡 2: 狼王 -->
+                <!-- 角色卡 2: 黑狼王 -->
                 <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
                     <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
-                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=狼王" alt="狼王" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=黑狼王" alt="黑狼王" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
-                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">狼王</h3>
-                        <span class="text-sm text-slate-500 uppercase tracking-widest">Wolf King</span>
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">黑狼王</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">可以帶人走的狼，也叫狼槍</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
-                        【陣營】邪惡陣營 (狼人陣營)
+                        【陣營】邪惡陣營 
                         【技能】
                         屬於狼人陣營，夜間與狼人一起睜眼殺人。
-                        **專屬技能：** 當狼王被公投出局（白天被投票處決）或夜間被獵人開槍帶走、被女巫毒死時（視具體板子規則，通常毒死不能開槍），可以發動技能「開槍」帶走場上任意一名存活的玩家。
-                        【注意】如果是殉情（如情侶被出）或被毒，通常無法發動技能。
+                        當狼王被「投票出局」或「夜間被獵人開槍帶走」，可以發動技能「開槍」帶走場上任意一名存活的玩家。
+                        【注意】黑狼王遭女巫毒或自爆，均無法啟動技能。自爆部分可能根據板子不同有所調整。
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
+                    </div>
+                </div>
+
+                <!-- 角色卡 3: 惡靈騎士 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=惡靈騎士" alt="惡靈騎士" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">惡靈騎士</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">具有反傷技能</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 
+                        【技能】
+                        屬於狼人陣營，夜間與狼人一起睜眼殺人。
+                        永遠不會死於夜晚，並具有一次反傷技能，免於女巫毒、預言家查驗、獵人夜槍。
+                        反傷技能只能使用一次，若一晚受到多神作用，則依睜眼順序反傷。
+                        (女巫>預言家>獵人)
+                        【注意】惡靈騎士不能自刀/自爆。
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
+                    </div>
+                </div>
+
+                <!-- 角色卡 4: 血月使者 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=血月使者" alt="血月使者" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">血月使者</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">封印神職技能</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 
+                        【技能】
+                        屬於狼人陣營，夜間與狼人一起睜眼殺人。
+                        1. 隨時可自爆後進入黑夜，當晚所有神職封印技能。
+                        2. 若為最後一狼被投票出局，可多刀一晚。若達成獲勝條件，仍算邪惡陣營獲勝。
+                        【注意】若已為最後一狼，自爆將直接視為淘汰。
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
+                    </div>
+                </div>
+
+                <!-- 角色卡 5: 狼美人 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=狼美人" alt="狼美人" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">狼美人</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">透過睡人來連線</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 
+                        【技能】
+                        屬於狼人陣營。夜間先與狼隊見面刀人後，單獨睜眼選擇魅惑的對象。
+                        1. 每晚可選擇魅惑(睡)一位玩家，每晚可選擇不同人，但不可連兩晚睡同一人。(狼者2版本)
+                        2. 狼美人死亡(票/毒/槍殺)時，前一晚睡的玩家一起殉情。
+                        3. 狼美人若為最後一狼投票出局，依照睡的對象是否達成獲勝條件判斷是否勝利。
+                        【注意】若遭騎士決鬥出局，無法發動殉情技能。狼美人不得自刀自爆
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
+                    </div>
+                </div>
+
+                <!-- 角色卡 6: 白狼王 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=白狼王" alt="白狼王" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">白狼王</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">只有自爆能帶人</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 
+                        【技能】
+                        屬於狼人陣營，夜間與狼人一起睜眼殺人。
+                        隨時可選擇翻牌自爆，自爆可帶走一名玩家，雙(多)方均無遺言。
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
+                    </div>
+                </div>
+
+                <!-- 角色卡 7: 狼兄狼弟 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=狼兄狼弟" alt="狼兄狼弟" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">狼兄狼弟</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">哥哥保護弟弟</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 (這是兩張牌)
+                        【技能】
+                        屬於狼人陣營。狼兄弟夜間先睜眼確認身分(不得溝通)。接著狼兄夜間與狼人一起睜眼殺人，狼弟不睜眼。
+                        |狼兄| 狼兄若出局，出局當晚狼弟可獲得一刀復仇刀，再下一晚則可回歸狼隊一起刀人。
+                        |狼弟| 在狼兄出局之前，無刀人技能。被預言家查驗為金水。
+                        【注意】狼兄不能自刀/自爆。
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
+                    </div>
+                </div>
+
+                <!-- 角色卡 8: 機械狼 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=機械狼" alt="機械狼" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">機械狼</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest"學習技能</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 
+                        【技能】
+                        屬於狼人陣營。夜間不參與狼隊刀人，直到其餘狼人均淘汰。
+                        【學習技能】可在第一晚學習一位玩家之技能，並於下一晚開始可以使用。(狼者2版本)
+                        1. 學習到通靈師，規則與通靈師相同；
+                        2. 學習到女巫，則獲則毒藥一瓶；
+                        3. 學習到獵人，規則與獵人相同；
+                        4. 學習到守衛，規則與守衛相同；
+                        5. 學習到狼人，獲得一把覺醒刀，下一晚開始可在任何時候使用該刀一次。
+                        6. 學習道平民，就是平名
+                        【注意】機械狼不得自爆。通靈師若查到機械狼，則顯示學習後的身分。
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
+                    </div>
+                </div>
+
+                <!-- 角色卡 9: 石像鬼 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=石像鬼" alt="石像鬼" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">石像鬼</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest"狼版通靈師</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 
+                        【技能】
+                        屬於狼人陣營。夜間不參與狼隊刀人，直到其餘狼人均淘汰。
+                        每晚可查驗一名玩家的真實身分。
+                        【注意】石像鬼不得自爆。
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
+                    </div>
+                </div>
+
+                <!-- 角色卡 10: 夢魘 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=夢魘" alt="夢魘" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">夢魘</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest"讓你做惡夢</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 
+                        【技能】
+                        屬於狼人陣營。夜間先單獨睜眼恐懼一名玩家，再與狼隊一起刀人。
+                        1. 每晚可選擇恐懼一名玩家，該玩家當晚無法使用技能。(如果恐到狼人，則狼隊當晚空刀)
+                        2. 不得連續兩晚恐懼同一位玩家。
+                        【注意】夢魘不得自刀/自爆。
+                        【目標】屠城或屠邊，如有特殊任務則依各板子規定。
                     </div>
                 </div>
             </div>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>狼人殺 - 懸疑推理之夜</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* 懸疑風格自訂樣式 */
+        body {
+            font-family: 'Noto Serif TC', serif;
+            background-color: #0f172a; /* 深邃夜空藍 */
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(circle at 50% 0%, #1e293b 0%, transparent 50%),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(0, 0, 0, 0.95)),
+                url('https://www.transparenttextures.com/patterns/stardust.png'); /* 增加一點星塵紋理質感 */
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* 霓虹/懸疑文字發光效果 */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(185, 28, 28, 0.7), 0 0 20px rgba(185, 28, 28, 0.5);
+        }
+        .text-glow-white {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        /* 角色卡片設計 */
+        .char-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            box-shadow: 5px 5px 15px #0a0f1c, -5px -5px 15px #22354c;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .char-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.2); /* 微微透出紅光 */
+            border-color: #7f1d1d;
+        }
+
+        /* 垂直分隔線 */
+        .vertical-divider {
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #475569, transparent);
+            margin: 0 1rem;
+        }
+
+        /* 頁籤按鈕樣式 */
+        .tab-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            color: #fca5a5;
+            border-bottom: 2px solid #dc2626;
+            background-color: rgba(220, 38, 38, 0.1);
+        }
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #dc2626;
+            transition: width 0.3s ease;
+        }
+        .tab-btn:hover::after {
+            width: 100%;
+        }
+
+        /* 隱藏區塊 */
+        .hidden-page {
+            display: none;
+        }
+
+        /* 自訂滾動條 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #991b1b; 
+        }
+
+        /* 血液飛濺裝飾元素 (CSS繪製簡單裝飾) */
+        .blood-splatter {
+            position: absolute;
+            background-color: #7f1d1d;
+            border-radius: 50%;
+            filter: blur(2px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- 背景裝飾 -->
+    <div class="blood-splatter w-32 h-32 top-10 left-[-2rem]"></div>
+    <div class="blood-splatter w-20 h-20 bottom-40 right-10 opacity-20"></div>
+
+    <!-- 導航列 -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700 shadow-lg shadow-black/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchPage('home')">
+                    <span class="text-2xl font-black text-red-600 tracking-widest text-glow">狼人殺</span>
+                    <span class="ml-2 text-sm text-slate-400">懸疑推理之夜</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <button onclick="switchPage('home')" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="home">主頁簡介</button>
+                        <button onclick="switchPage('characters')" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="characters">角色介紹</button>
+                        <button onclick="switchPage('setups')" class="nav-link text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors" data-target="setups">遊戲板子</button>
+                    </div>
+                </div>
+                <!-- 手機版選單按鈕 -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-slate-700 focus:outline-none">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 手機版選單 -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-800 shadow-xl border-b border-slate-700">
+                <button onclick="switchPage('home'); toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">主頁簡介</button>
+                <button onclick="switchPage('characters'); toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">角色介紹</button>
+                <button onclick="switchPage('setups'); toggleMobileMenu()" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">遊戲板子</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 頁面容器 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-screen">
+
+        <!-- ===== 首頁 (主頁) ===== -->
+        <div id="page-home" class="page-content block fade-in">
+            <div class="text-center py-16 md:py-32">
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-widest text-glow-white">
+                    天黑請閉眼
+                </h1>
+                <p class="mt-4 max-w-2xl text-xl text-slate-300 mx-auto leading-relaxed mb-12">
+                    在謊言與真相交織的村莊裡，誰是潛伏在暗處的狼人？誰又是引領村民走向光明的神職？<br>
+                    準備好你的邏輯與口才，這是一場沒有硝煙的戰爭。
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-16 text-left">
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 backdrop-blur-sm cursor-pointer hover:bg-slate-800 transition" onclick="switchPage('characters')">
+                        <div class="text-red-500 mb-4">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-2">角色介紹</h2>
+                        <p class="text-slate-400">深入了解狼人殺宇宙中的各方勢力：嗜血的邪惡陣營、守護村莊的好人陣營，以及目的莫測的第三方。掌握每個角色的獨特技能，是獲勝的關鍵。</p>
+                    </div>
+
+                    <div class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 backdrop-blur-sm cursor-pointer hover:bg-slate-800 transition" onclick="switchPage('setups')">
+                        <div class="text-red-500 mb-4">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-white mb-2">遊戲板子與流程</h2>
+                        <p class="text-slate-400">探索適合不同人數的經典遊戲配置（板子）。提供上帝視角的詳細遊戲流程，以及玩家們的血淚心得與高端玩法分享，助你快速組局。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 角色介紹分頁 ===== -->
+        <div id="page-characters" class="page-content hidden-page">
+            <h2 class="text-3xl font-bold text-white mb-8 border-l-4 border-red-600 pl-4">角色圖鑑</h2>
+            
+            <!-- 子分頁導航 -->
+            <div class="flex space-x-1 border-b border-slate-700 mb-8">
+                <button onclick="switchCharTab('evil')" class="char-tab-btn active px-6 py-3 text-lg font-medium text-slate-300 hover:text-white focus:outline-none transition-colors rounded-t-lg bg-slate-800/50" data-target="evil">
+                    🐺 邪惡陣營
+                </button>
+                <button onclick="switchCharTab('good')" class="char-tab-btn px-6 py-3 text-lg font-medium text-slate-300 hover:text-white focus:outline-none transition-colors rounded-t-lg" data-target="good">
+                    🛡️ 好人陣營
+                </button>
+                <button onclick="switchCharTab('third')" class="char-tab-btn px-6 py-3 text-lg font-medium text-slate-300 hover:text-white focus:outline-none transition-colors rounded-t-lg" data-target="third">
+                    🃏 第三方陣營
+                </button>
+            </div>
+
+            <!-- 邪惡陣營內容 -->
+            <div id="char-tab-evil" class="char-tab-content block space-y-6">
+                <!-- 角色卡 1: 狼人 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <!-- 左: 圖片 -->
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                         <!-- 使用 Placeholder 替代實際圖片，加入暗黑風格色調 -->
+                        <img src="https://placehold.co/120x120/1e293b/ef4444?text=狼人" alt="狼人" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    
+                    <!-- 中: 名字 -->
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-500 tracking-wider">狼人</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">Werewolf</span>
+                    </div>
+
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    
+                    <!-- 右: 介紹 (最大空間，支援換行) -->
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 (狼人陣營)
+                        【技能】
+                        每天夜裡可以與其他狼人同伴睜眼互相確認身分。
+                        每晚可以共同討論並襲擊（殺害）場上的一名玩家。可以選擇空刀（不殺任何人）或自刀（殺死狼人自己，通常用於騙取女巫解藥）。
+                        【目標】屠城（殺死所有好人）或屠邊（殺死所有神職或所有平民）。
+                    </div>
+                </div>
+
+                <!-- 角色卡 2: 狼王 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/b91c1c?text=狼王" alt="狼王" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-red-600 tracking-wider">狼王</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">Wolf King</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】邪惡陣營 (狼人陣營)
+                        【技能】
+                        屬於狼人陣營，夜間與狼人一起睜眼殺人。
+                        **專屬技能：** 當狼王被公投出局（白天被投票處決）或夜間被獵人開槍帶走、被女巫毒死時（視具體板子規則，通常毒死不能開槍），可以發動技能「開槍」帶走場上任意一名存活的玩家。
+                        【注意】如果是殉情（如情侶被出）或被毒，通常無法發動技能。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 好人陣營內容 -->
+            <div id="char-tab-good" class="char-tab-content hidden-page space-y-6">
+                 <!-- 角色卡: 預言家 -->
+                 <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/60a5fa?text=預言家" alt="預言家" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-blue-400 tracking-wider">預言家</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">Seer</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        每天夜裡可以查驗場上一名玩家的身分，法官會告知該玩家是「好人」還是「狼人」。
+                        無法查驗出該玩家的具體職業（例如：只能知道是好人，不知是平民還是女巫）。
+                        【核心】好人陣營的資訊核心，通常需要在白天起跳（公開身分）報查驗，帶領好人找出狼人。
+                    </div>
+                </div>
+
+                <!-- 角色卡: 女巫 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/a78bfa?text=女巫" alt="女巫" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-purple-400 tracking-wider">女巫</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">Witch</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        擁有一瓶解藥和一瓶毒藥。
+                        **解藥：** 夜裡可以救活被狼人殺害的玩家。
+                        **毒藥：** 夜裡可以毒死場上任意一名存活的玩家。
+                        【限制】一個晚上不能同時使用兩瓶藥。通常情況下，女巫整場遊戲只有首夜可以自救（用解藥救自己）。
+                    </div>
+                </div>
+
+                <!-- 角色卡: 平民 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/d1d5db?text=平民" alt="平民" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-300 tracking-wider">平民</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">Villager</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (平民)
+                        【技能】
+                        沒有任何特殊技能。
+                        夜裡全程閉眼睡覺。
+                        【核心】只能透過白天的發言、邏輯分析和玩家狀態來判斷誰是狼人，並在白天進行投票。平民是好人陣營的基石，擋刀與推理是主要任務。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第三方陣營內容 -->
+            <div id="char-tab-third" class="char-tab-content hidden-page space-y-6">
+                <!-- 角色卡: 邱比特 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/f472b6?text=邱比特" alt="邱比特" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-pink-400 tracking-wider">邱比特</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">Cupid</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】視情況而定 (通常視為第三方)
+                        【技能】
+                        在遊戲的第一個晚上，必須指定兩名玩家成為「情侶」（也可以指定自己和另一名玩家）。
+                        【羈絆】情侶中若有一人死去，另一人必須殉情（跟著死去）。
+                        【獲勝條件】
+                        1. 若情侶為「好人+好人」或「狼人+狼人」，邱比特為好人陣營，獲勝條件同好人。
+                        2. 若情侶為「好人+狼人」（人狼戀），邱比特與情侶組成第三方陣營，必須殺光場上所有人（包括其他好人與狼人）才能獲勝。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 遊戲板子分頁 ===== -->
+        <div id="page-setups" class="page-content hidden-page">
+            <h2 class="text-3xl font-bold text-white mb-2 border-l-4 border-red-600 pl-4">配置與局式 (板子)</h2>
+            <p class="text-slate-400 mb-8 ml-5">選擇適合你們人數的配置，開啟爾虞我詐的一局。</p>
+
+            <!-- 8人局 -->
+            <div class="mb-12">
+                <div class="flex items-center mb-6">
+                    <h3 class="text-2xl font-bold text-slate-200">8 人局</h3>
+                    <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- 板子 1 -->
+                    <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700 relative overflow-hidden group hover:border-slate-500 transition">
+                        <div class="absolute top-0 right-0 bg-slate-700 text-xs px-3 py-1 rounded-bl-lg font-bold text-slate-300">新手推薦</div>
+                        <h4 class="text-xl font-bold text-red-400 mb-4">預女獵守</h4>
+                        
+                        <div class="mb-4">
+                            <span class="text-sm text-slate-500 block mb-1">【角色配置】</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">預言家 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">女巫 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">獵人 x1</span>
+                                <span class="bg-gray-700/50 text-gray-300 px-2 py-1 rounded text-sm">平民 x3</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">狼人 x2</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <span class="text-sm text-slate-500 block mb-1">【規則說明】</span>
+                            <p class="text-slate-300 text-sm leading-relaxed">屠邊局。狼人殺光所有神職，或殺光所有平民即獲勝。好人需公投出所有狼人。無警長競選環節。女巫首夜不可自救。</p>
+                        </div>
+
+                        <!-- 按鈕區 (置於右下角) -->
+                        <div class="absolute bottom-4 right-4 flex space-x-2">
+                            <button onclick="openSubPage('flow', '8人預女獵守')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', '8人預女獵守')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10人局 -->
+            <div class="mb-12">
+                <div class="flex items-center mb-6">
+                    <h3 class="text-2xl font-bold text-slate-200">10 人局</h3>
+                    <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                     <!-- 板子 -->
+                     <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700 relative overflow-hidden group hover:border-slate-500 transition">
+                        <div class="absolute top-0 right-0 bg-yellow-700/50 text-xs px-3 py-1 rounded-bl-lg font-bold text-yellow-300">進階挑戰</div>
+                        <h4 class="text-xl font-bold text-red-400 mb-4">預女獵騎士</h4>
+                        
+                        <div class="mb-4">
+                            <span class="text-sm text-slate-500 block mb-1">【角色配置】</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">預言家 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">女巫 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">獵人 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">騎士 x1</span>
+                                <span class="bg-gray-700/50 text-gray-300 px-2 py-1 rounded text-sm">平民 x3</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">狼人 x3</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <span class="text-sm text-slate-500 block mb-1">【規則說明】</span>
+                            <p class="text-slate-300 text-sm leading-relaxed">屠邊局。有警長競選。騎士可以在白天發言階段發動技能決鬥一名玩家，若為狼人則狼人死且直接入夜；若為好人則騎士死，發言繼續。</p>
+                        </div>
+
+                        <div class="absolute bottom-4 right-4 flex space-x-2">
+                            <button onclick="openSubPage('flow', '10人預女獵騎士')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', '10人預女獵騎士')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12人局 -->
+            <div class="mb-12">
+                <div class="flex items-center mb-6">
+                    <h3 class="text-2xl font-bold text-slate-200">12 人局</h3>
+                    <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                     <!-- 板子 -->
+                     <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700 relative overflow-hidden group hover:border-slate-500 transition">
+                        <div class="absolute top-0 right-0 bg-red-800/50 text-xs px-3 py-1 rounded-bl-lg font-bold text-red-200">經典競技</div>
+                        <h4 class="text-xl font-bold text-red-400 mb-4">預女獵白標準局</h4>
+                        
+                        <div class="mb-4">
+                            <span class="text-sm text-slate-500 block mb-1">【角色配置】</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">預言家 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">女巫 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">獵人 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">白痴 x1</span>
+                                <span class="bg-gray-700/50 text-gray-300 px-2 py-1 rounded text-sm">平民 x4</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">狼人 x4</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <span class="text-sm text-slate-500 block mb-1">【規則說明】</span>
+                            <p class="text-slate-300 text-sm leading-relaxed">最經典的比賽局式。屠邊局，有警長競選。白痴被公投出局可以翻牌免死，但失去投票權。狼人通常需要精密的戰術配合。</p>
+                        </div>
+
+                        <div class="absolute bottom-4 right-4 flex space-x-2">
+                            <button onclick="openSubPage('flow', '12人預女獵白')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', '12人預女獵白')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 獨立子頁面覆蓋層 (全螢幕) -->
+    <div id="subpage-overlay" class="fixed inset-0 bg-slate-900 z-[100] hidden flex-col overflow-y-auto">
+        <!-- 頂部導航 -->
+        <div class="sticky top-0 bg-slate-800/90 backdrop-blur border-b border-slate-700 p-4 flex justify-between items-center shadow-lg">
+            <h2 id="subpage-title" class="text-2xl font-bold text-white text-glow">標題載入中...</h2>
+            <button onclick="closeSubPage()" class="text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-700 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <!-- 內容區 -->
+        <div class="max-w-4xl mx-auto w-full p-6 pb-20">
+            <!-- 遊戲流程內容模板 -->
+            <div id="content-flow" class="hidden space-y-8">
+                <p class="text-slate-400 italic mb-6 border-l-2 border-slate-600 pl-3">給上帝 (主持人) 的專屬手冊，請按照以下順序主持黑夜。這是一個通用模板，請自行更新細節。</p>
+                
+                <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
+                    <h3 class="text-xl font-bold text-blue-400 mb-3 flex items-center">
+                        <span class="bg-blue-900/50 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span> 
+                        準備階段
+                    </h3>
+                    <div class="text-slate-300 space-y-2 pl-11">
+                        <p>發放身分牌，確認所有玩家已看清身分。</p>
+                        <p class="text-red-400 font-bold">法官台詞：「天黑請閉眼。」</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
+                    <h3 class="text-xl font-bold text-purple-400 mb-3 flex items-center">
+                        <span class="bg-purple-900/50 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span> 
+                        夜間行動 (依順序)
+                    </h3>
+                    <div class="text-slate-300 space-y-4 pl-11">
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">狼人陣營</h4>
+                            <p>法官：「狼人請睜眼。狼人請互相確認身分。請選擇要擊殺的目標。」</p>
+                            <p class="text-sm text-slate-400 mt-1">(確認擊殺目標後) 法官：「狼人請閉眼。」</p>
+                        </div>
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">女巫</h4>
+                            <p>法官：「女巫請睜眼。昨晚死的是他 (比手勢)。你要使用解藥嗎？你要使用毒藥嗎？」</p>
+                            <p class="text-sm text-slate-400 mt-1">法官：「女巫請閉眼。」</p>
+                        </div>
+                        <div class="pb-1">
+                            <h4 class="font-bold text-white mb-1">預言家</h4>
+                            <p>法官：「預言家請睜眼。請選擇你要查驗的玩家。他是... (給出好人或狼人手勢)。」</p>
+                            <p class="text-sm text-slate-400 mt-1">法官：「預言家請閉眼。」</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
+                    <h3 class="text-xl font-bold text-yellow-400 mb-3 flex items-center">
+                        <span class="bg-yellow-900/50 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">3</span> 
+                        天亮結算
+                    </h3>
+                    <div class="text-slate-300 space-y-2 pl-11">
+                        <p class="text-red-400 font-bold">法官台詞：「天亮請睜眼。」</p>
+                        <p>進行警長競選 (若有此環節)。</p>
+                        <p>宣布昨夜死訊 (或平安夜)。</p>
+                        <p>死者發表遺言 (視首夜或後續規則而定)，隨後依序發言。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 遊玩心得內容模板 -->
+            <div id="content-review" class="hidden space-y-6">
+                 <div class="bg-red-900/20 border border-red-900/50 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-red-400 mb-4">📝 玩家筆記與慣用套路</h3>
+                    <p class="text-slate-300 mb-4">這裡可以手動更新玩家們對這個板子的評價、常見的戰術，或是血淚教訓。</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-slate-800 p-4 rounded border-l-4 border-blue-500">
+                            <h4 class="font-bold text-white">好人視角</h4>
+                            <p class="text-slate-400 text-sm mt-1">預言家一定要在第一天果斷起跳，報出查驗。不要害怕被出，資訊才是好人獲勝的關鍵。</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded border-l-4 border-red-500">
+                            <h4 class="font-bold text-white">狼人視角</h4>
+                            <p class="text-slate-400 text-sm mt-1">悍跳預言家是基本功。給好人發查殺可以逼迫神職現身，給狼隊友發金水則可以做高隊友身分。發言要理直氣壯。</p>
+                        </div>
+                        <div class="bg-slate-800 p-4 rounded border-l-4 border-purple-500">
+                            <h4 class="font-bold text-white">搞笑語錄</h4>
+                            <p class="text-slate-400 text-sm mt-1">「我真的是平民！我底牌壓制！」 —— 某位被公投出局的狼人。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // 切換主頁面 (主頁、角色、板子)
+        function switchPage(pageId) {
+            // 隱藏所有頁面
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.classList.add('hidden-page');
+                page.classList.remove('block', 'fade-in');
+            });
+
+            // 更新導航列狀態
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if(link.getAttribute('data-target') === pageId) {
+                    link.classList.add('text-white', 'bg-slate-800');
+                    link.classList.remove('text-gray-300');
+                } else {
+                    link.classList.remove('text-white', 'bg-slate-800');
+                    link.classList.add('text-gray-300');
+                }
+            });
+
+            // 顯示目標頁面並加入簡單動畫
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden-page');
+                targetPage.classList.add('block');
+                // 觸發重繪以應用漸顯效果(若需CSS動畫)
+                targetPage.style.opacity = '0';
+                setTimeout(() => {
+                    targetPage.style.transition = 'opacity 0.5s ease';
+                    targetPage.style.opacity = '1';
+                }, 10);
+            }
+            
+            window.scrollTo(0, 0);
+        }
+
+        // 切換角色子頁籤 (邪惡、好人、第三方)
+        function switchCharTab(tabId) {
+            // 隱藏所有內容
+            const contents = document.querySelectorAll('.char-tab-content');
+            contents.forEach(content => {
+                content.classList.add('hidden-page');
+                content.classList.remove('block');
+            });
+
+            // 移除所有按鈕的 active 狀態
+            const btns = document.querySelectorAll('.char-tab-btn');
+            btns.forEach(btn => {
+                btn.classList.remove('active', 'bg-slate-800/50');
+            });
+
+            // 顯示目標內容與設定 active
+            const targetContent = document.getElementById('char-tab-' + tabId);
+            if (targetContent) {
+                targetContent.classList.remove('hidden-page');
+                targetContent.classList.add('block');
+            }
+
+            const targetBtn = document.querySelector(`.char-tab-btn[data-target="${tabId}"]`);
+            if (targetBtn) {
+                targetBtn.classList.add('active', 'bg-slate-800/50');
+            }
+        }
+
+        // 開啟子頁面 (遊戲流程或心得)
+        function openSubPage(type, boardName) {
+            const overlay = document.getElementById('subpage-overlay');
+            const title = document.getElementById('subpage-title');
+            const contentFlow = document.getElementById('content-flow');
+            const contentReview = document.getElementById('content-review');
+
+            // 設定標題
+            if (type === 'flow') {
+                title.innerHTML = `<span class="text-slate-400 text-lg mr-2">遊戲流程：</span>${boardName}`;
+                contentFlow.classList.remove('hidden');
+                contentReview.classList.add('hidden');
+            } else if (type === 'review') {
+                title.innerHTML = `<span class="text-slate-400 text-lg mr-2">遊玩心得：</span>${boardName}`;
+                contentReview.classList.remove('hidden');
+                contentFlow.classList.add('hidden');
+            }
+
+            // 顯示覆蓋層
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // 防止背景滾動
+        }
+
+        // 關閉子頁面
+        function closeSubPage() {
+            const overlay = document.getElementById('subpage-overlay');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // 恢復背景滾動
+        }
+
+        // 手機版選單開關
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            // 預設顯示主頁，並設定導航狀態
+            const homeLink = document.querySelector('.nav-link[data-target="home"]');
+            if(homeLink) {
+                homeLink.classList.add('text-white', 'bg-slate-800');
+            }
+        });
+    </script>
+</body>
+</html>

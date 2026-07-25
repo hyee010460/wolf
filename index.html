@@ -507,6 +507,87 @@
                         【限制】若被女巫毒殺，則無法發動技能。
                     </div>
                 </div>
+
+                <!-- 角色卡: 騎士 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="騎士.png" alt="騎士" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-yellow-400 tracking-wider">騎士</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">選一人決鬥</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        自己發言階段可選擇一名玩家進行決鬥:
+                        1. 若該玩家為好人，則騎士以死謝罪。從下一位玩家繼續發言。
+                        2. 若該玩家為狼人，則該狼人出局，直接進入黑夜。(可封狼王、狼美人技能)
+                        【限制】此技能只能使用一次。
+                    </div>
+                </div>
+
+                <!-- 角色卡: 守衛 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="守衛.png" alt="守衛" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gold-400 tracking-wider">守衛</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">選擇玩家守護</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        每晚可選擇守護一名玩家，可以空守，但不能連續守同一位玩家。
+                        若同守同救，該玩家依舊會淘汰。
+                        【限制】守衛無法盾女巫毒。
+                    </div>
+                </div>
+
+                 <!-- 角色卡: 獵魔人 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="獵魔人.png" alt="獵魔人" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-teal-400 tracking-wider">獵魔人</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">夜晚的騎士</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        第二晚開始可選擇一位玩家狩獵:
+                        1. 若該玩家為好人，則獵魔人以死謝罪(早上宣布死亡)
+                        2. 若該玩家為狼人，則該狼人出局
+                        【注意】獵魔人不受神職攻擊影響(比如巫毒)。
+                    </div>
+                </div>
+                
+                <!-- 角色卡: 守墓人 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="守墓人.png" alt="守墓人" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-lavender-400 tracking-wider">守墓人</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">查看出局玩家陣營</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        夜間可知道上一早出局玩家的陣營，但不會知道真實身分。
+                        (石像鬼是狼隊，所以也會顯示狼人)
+                    </div>
+                </div>
             </div>
 
             <!-- 第三方陣營內容 -->
@@ -550,7 +631,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <!-- 板子 1 -->
                     <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700 relative overflow-hidden group hover:border-slate-500 transition">
-                        <div class="absolute top-0 right-0 bg-blue-700 text-xs px-3 py-1 rounded-bl-lg font-bold text-blue-300">全員身分大亂鬥</div>
+                        <div class="absolute top-0 right-0 bg-blue-300 text-xs px-3 py-1 rounded-bl-lg font-bold text-blue-700">全員身分大亂鬥</div>
                         <h4 class="text-xl font-bold text-red-400 mb-4">8人諸神黃昏</h4>
                         
                         <div class="mb-4">
@@ -619,7 +700,7 @@
 
                     <!-- 板子 2 -->
                     <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700 relative overflow-hidden group hover:border-slate-500 transition">
-                        <div class="absolute top-0 right-0 bg-blue-700 text-xs px-3 py-1 rounded-bl-lg font-bold text-blue-300">全員身分大亂鬥</div>
+                        <div class="absolute top-0 right-0 bg-blue-300 text-xs px-3 py-1 rounded-bl-lg font-bold text-blue-700">全員身分大亂鬥</div>
                         <h4 class="text-xl font-bold text-red-400 mb-4">9人諸神黃昏</h4>
                         
                         <div class="mb-4">

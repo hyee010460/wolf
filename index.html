@@ -781,8 +781,8 @@
 
                         <!-- 按鈕區 (置於右下角) -->
                         <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button onclick="openSubPage('flow', '8人諸神黃昏')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
-                            <button onclick="openSubPage('review', '8人諸神黃昏')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                            <button onclick="openSubPage('flow', 'board8-1', '8人諸神黃昏')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', 'board8-1', '8人諸神黃昏')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
                         </div>
                     </div>
                 </div>
@@ -819,8 +819,8 @@
 
                         <!-- 按鈕區 (置於右下角) -->
                         <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button onclick="openSubPage('flow', '9人基本局')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
-                            <button onclick="openSubPage('review', '9人基本局')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                            <button onclick="openSubPage('flow', 'board9-1', '9人基本局')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', 'board9-1', '9人基本局')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
                         </div>
                     </div>
 
@@ -851,8 +851,8 @@
 
                         <!-- 按鈕區 (置於右下角) -->
                         <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button onclick="openSubPage('flow', '9人諸神黃昏')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
-                            <button onclick="openSubPage('review', '9人諸神黃昏')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                            <button onclick="openSubPage('flow', 'board9-2', '9人諸神黃昏')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', 'board9-2', '9人諸神黃昏')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
                         </div>
                     </div>
                 </div>
@@ -889,8 +889,8 @@
                         </div>
 
                         <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button onclick="openSubPage('flow', '10人預女獵騎士')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
-                            <button onclick="openSubPage('review', '10人預女獵騎士')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                            <button onclick="openSubPage('flow', 'board10-1', '10人預女獵騎士')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', 'board10-1', '10人預女獵騎士')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
                         </div>
                     </div>
                 </div>
@@ -927,8 +927,8 @@
                         </div>
 
                         <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button onclick="openSubPage('flow', '12人預女獵白')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
-                            <button onclick="openSubPage('review', '12人預女獵白')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                            <button onclick="openSubPage('flow', 'board12-1', '12人預女獵白')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', 'board12-1', '12人預女獵白')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
                         </div>
                     </div>
                 </div>
@@ -949,77 +949,208 @@
 
         <!-- 內容區 -->
         <div class="max-w-4xl mx-auto w-full p-6 pb-20">
-            <!-- 遊戲流程內容模板 -->
-            <div id="content-flow" class="hidden space-y-8">
-                <p class="text-slate-400 italic mb-6 border-l-2 border-slate-600 pl-3">給上帝 (主持人) 的專屬手冊，請按照以下順序主持黑夜。這是一個通用模板，請自行更新細節。</p>
-                
+            
+            <!-- ========================================== -->
+            <!-- 8人局: 諸神黃昏 - 專屬內容區塊 -->
+            <!-- ========================================== -->
+            <div id="flow-board8-1" class="subpage-detail hidden space-y-8">
+                <p class="text-slate-400 italic mb-6 border-l-2 border-slate-600 pl-3">給上帝的專屬手冊，請按照以下順序主持黑夜。(8人諸神黃昏)</p>
                 <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
                     <h3 class="text-xl font-bold text-blue-400 mb-3 flex items-center">
-                        <span class="bg-blue-900/50 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span> 
-                        準備階段
-                    </h3>
-                    <div class="text-slate-300 space-y-2 pl-11">
-                        <p>發放身分牌，確認所有玩家已看清身分。</p>
-                        <p class="text-red-400 font-bold">法官台詞：「天黑請閉眼。」</p>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
-                    <h3 class="text-xl font-bold text-purple-400 mb-3 flex items-center">
-                        <span class="bg-purple-900/50 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span> 
-                        夜間行動 (依順序)
+                        <span class="bg-blue-900/50 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">1</span> 第一夜夜間
                     </h3>
                     <div class="text-slate-300 space-y-4 pl-11">
+                        <!-- 在這裡填寫 8人諸神黃昏 的特定流程 -->
                         <div class="border-b border-slate-700 pb-3">
-                            <h4 class="font-bold text-white mb-1">狼人陣營</h4>
-                            <p>法官：「狼人請睜眼。狼人請互相確認身分。請選擇要擊殺的目標。」</p>
-                            <p class="text-sm text-slate-400 mt-1">(確認擊殺目標後) 法官：「狼人請閉眼。」</p>
+                            <h4 class="font-bold text-white mb-1">天黑請閉眼</h4>
+                        </div>
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">守衛</h4>
+                            <p>法官：「守衛請睜眼。選擇你要守護的玩家？」</p>
+                            <p class="text-sm text-slate-400 mt-1">法官：「守衛請閉眼。」</p>
+                        </div>
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">狼人陣營(黑狼王、白狼王、惡靈騎士)</h4>
+                            <p>法官：「狼人請睜眼。選擇要擊殺的目標。」<br>黑狼王比讚，白狼王比槍(賽前約定好就好)，惡靈比倒讚。</p>
+                            <p class="text-sm text-slate-400 mt-1">法官：「狼人請閉眼。」</p>
                         </div>
                         <div class="border-b border-slate-700 pb-3">
                             <h4 class="font-bold text-white mb-1">女巫</h4>
-                            <p>法官：「女巫請睜眼。昨晚死的是他 (比手勢)。你要使用解藥嗎？你要使用毒藥嗎？」</p>
+                            <p>法官：「女巫請睜眼。昨晚他(比號碼)被殺死了。你要使用解藥嗎？(等待)你要使用毒藥嗎？你要毒誰呢」</p>
                             <p class="text-sm text-slate-400 mt-1">法官：「女巫請閉眼。」</p>
                         </div>
                         <div class="pb-1">
                             <h4 class="font-bold text-white mb-1">預言家</h4>
-                            <p>法官：「預言家請睜眼。請選擇你要查驗的玩家。他是... (給出好人或狼人手勢)。」</p>
+                            <p>法官：「預言家請睜眼。請選擇你要查驗的玩家。他是... (給出手勢,好人讚狼人倒讚)。」</p>
                             <p class="text-sm text-slate-400 mt-1">法官：「預言家請閉眼。」</p>
                         </div>
+                        <div class="pb-1">
+                            <h4 class="font-bold text-white mb-1">獵人</h4>
+                            <p>法官：「獵人請睜眼。(紀錄身分)」</p>
+                            <p class="text-sm text-slate-400 mt-1">法官：「獵人請閉眼。」</p>
+                        </div>
+                        <div class="pb-1">
+                            <h4 class="font-bold text-white mb-1">白癡</h4>
+                            <p>法官：「白癡請睜眼。(紀錄身分)」</p>
+                            <p class="text-sm text-slate-400 mt-1">法官：「白癡請閉眼。」</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
-                    <h3 class="text-xl font-bold text-yellow-400 mb-3 flex items-center">
-                        <span class="bg-yellow-900/50 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">3</span> 
-                        天亮結算
+                    
+                    <h3 class="text-xl font-bold text-blue-400 mb-3 flex items-center">
+                        <span class="bg-blue-900/50 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm">2</span> 第二夜之後夜間
                     </h3>
-                    <div class="text-slate-300 space-y-2 pl-11">
-                        <p class="text-red-400 font-bold">法官台詞：「天亮請睜眼。」</p>
-                        <p>進行警長競選 (若有此環節)。</p>
-                        <p>宣布昨夜死訊 (或平安夜)。</p>
-                        <p>死者發表遺言 (視首夜或後續規則而定)，隨後依序發言。</p>
+                    <div class="text-slate-300 space-y-4 pl-11">
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">天黑請閉眼</h4>
+                        </div>
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">所有神職</h4>
+                            <p>順序與第一夜相同，不論該神職出局與否，都要喊流程。<br>女巫部分，不論用藥與否，都要喊流程。(若解藥已使用，也要喊，但不用告訴女巫誰被殺)<br>【注意】獵人與白痴由於已確認過身分，不用再睜眼</p>
+                        </div>
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">狼人</h4>
+                            <p>流程與第一夜相同。</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 遊玩心得內容模板 -->
-            <div id="content-review" class="hidden space-y-6">
-                 <div class="bg-red-900/20 border border-red-900/50 rounded-lg p-6">
-                    <h3 class="text-xl font-bold text-red-400 mb-4">📝 玩家筆記與慣用套路</h3>
-                    <p class="text-slate-300 mb-4">這裡可以手動更新玩家們對這個板子的評價、常見的戰術，或是血淚教訓。</p>
-                    
+            <div id="review-board8-1" class="subpage-detail hidden space-y-6">
+                <div class="bg-red-900/20 border border-red-900/50 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-red-400 mb-4">📝 8人諸神黃昏 - 玩家筆記</h3>
                     <div class="space-y-4">
                         <div class="bg-slate-800 p-4 rounded border-l-4 border-blue-500">
-                            <h4 class="font-bold text-white">好人視角</h4>
-                            <p class="text-slate-400 text-sm mt-1">預言家一定要在第一天果斷起跳，報出查驗。不要害怕被出，資訊才是好人獲勝的關鍵。</p>
+                            <h4 class="font-bold text-white">神仙打架</h4>
+                            <p class="text-slate-400 text-sm mt-1">這個板子沒有平民，大家都有技能，非常考驗發言和技能釋放的時機。</p>
                         </div>
-                        <div class="bg-slate-800 p-4 rounded border-l-4 border-red-500">
-                            <h4 class="font-bold text-white">狼人視角</h4>
-                            <p class="text-slate-400 text-sm mt-1">悍跳預言家是基本功。給好人發查殺可以逼迫神職現身，給狼隊友發金水則可以做高隊友身分。發言要理直氣壯。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- 9人局: 經典OG局 - 專屬內容區塊 -->
+            <!-- ========================================== -->
+            <div id="flow-board9-1" class="subpage-detail hidden space-y-8">
+                <p class="text-slate-400 italic mb-6 border-l-2 border-slate-600 pl-3">給上帝 (主持人) 的專屬手冊。 (9人基本局專屬)</p>
+                <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
+                     <div class="text-slate-300 space-y-4">
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">狼人陣營</h4>
+                            <p>法官：「狼人請睜眼。請選擇要擊殺的目標。」</p>
                         </div>
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">女巫</h4>
+                            <p>法官：「女巫請睜眼。昨晚死的是他。你要使用解藥嗎？你要使用毒藥嗎？」</p>
+                        </div>
+                        <div class="pb-1">
+                            <h4 class="font-bold text-white mb-1">預言家</h4>
+                            <p>法官：「預言家請睜眼。請選擇你要查驗的玩家。」</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="review-board9-1" class="subpage-detail hidden space-y-6">
+                <div class="bg-red-900/20 border border-red-900/50 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-red-400 mb-4">📝 9人基本局 - 玩家筆記</h3>
+                    <div class="space-y-4">
+                        <div class="bg-slate-800 p-4 rounded border-l-4 border-blue-500">
+                            <h4 class="font-bold text-white">回歸初心</h4>
+                            <p class="text-slate-400 text-sm mt-1">最基礎的邏輯盤點，適合新手練習聽發言找狼。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- 9人局: 諸神黃昏 - 專屬內容區塊 -->
+            <!-- ========================================== -->
+            <div id="flow-board9-2" class="subpage-detail hidden space-y-8">
+                <p class="text-slate-400 italic mb-6 border-l-2 border-slate-600 pl-3">給上帝 (主持人) 的專屬手冊。 (9人諸神黃昏專屬)</p>
+                <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
+                     <div class="text-slate-300 space-y-4">
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">守衛</h4>
+                            <p>法官：「守衛請睜眼。你要守護誰？」</p>
+                        </div>
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">狼人陣營</h4>
+                            <p>法官：「狼人請睜眼。請選擇要擊殺的目標。」</p>
+                        </div>
+                        <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">女巫</h4>
+                            <p>法官：「女巫請睜眼。你要使用解藥嗎？你要使用毒藥嗎？」</p>
+                        </div>
+                         <div class="border-b border-slate-700 pb-3">
+                            <h4 class="font-bold text-white mb-1">預言家</h4>
+                            <p>法官：「預言家請睜眼。請選擇你要查驗的玩家。」</p>
+                        </div>
+                        <div class="pb-1">
+                            <h4 class="font-bold text-white mb-1">獵魔人</h4>
+                            <p>法官：「獵魔人請睜眼。你要狩獵誰？」(第二晚開始)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="review-board9-2" class="subpage-detail hidden space-y-6">
+                <div class="bg-red-900/20 border border-red-900/50 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-red-400 mb-4">📝 9人諸神黃昏 - 玩家筆記</h3>
+                    <div class="space-y-4">
+                        <div class="bg-slate-800 p-4 rounded border-l-4 border-teal-500">
+                            <h4 class="font-bold text-white">獵魔人使用時機</h4>
+                            <p class="text-slate-400 text-sm mt-1">獵魔人只有一次技能，千萬不要盲戳，最好能精準封掉狼王技能。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- 10人局: 預女獵騎士 - 專屬內容區塊 -->
+            <!-- ========================================== -->
+            <div id="flow-board10-1" class="subpage-detail hidden space-y-8">
+                <p class="text-slate-400 italic mb-6 border-l-2 border-slate-600 pl-3">給上帝 (主持人) 的專屬手冊。 (10人預女獵騎士專屬)</p>
+                <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
+                     <div class="text-slate-300 space-y-4">
+                        <!-- 填寫流程 -->
+                         <p>基本流程：狼人 -> 女巫 -> 預言家。</p>
+                         <p>白天特例：騎士決鬥不經過夜晚，法官需直接宣判結果，若是狼人則直接天黑，若是好人則騎士死發言繼續。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="review-board10-1" class="subpage-detail hidden space-y-6">
+                <div class="bg-red-900/20 border border-red-900/50 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-red-400 mb-4">📝 10人預女獵騎士 - 玩家筆記</h3>
+                     <div class="space-y-4">
+                        <div class="bg-slate-800 p-4 rounded border-l-4 border-green-500">
+                            <h4 class="font-bold text-white">騎士的決斷</h4>
+                            <p class="text-slate-400 text-sm mt-1">騎士通常用來正視角，戳對面起跳的預言家，一翻兩瞪眼。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- 12人局: 預女獵白 - 專屬內容區塊 -->
+            <!-- ========================================== -->
+            <div id="flow-board12-1" class="subpage-detail hidden space-y-8">
+                <p class="text-slate-400 italic mb-6 border-l-2 border-slate-600 pl-3">給上帝 (主持人) 的專屬手冊。 (12人預女獵白標準局專屬)</p>
+                 <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700 shadow-md">
+                     <div class="text-slate-300 space-y-4">
+                        <p>經典流程：狼人 -> 女巫 -> 預言家。</p>
+                        <p>有警長競選環節。白痴被投出需翻牌。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="review-board12-1" class="subpage-detail hidden space-y-6">
+                <div class="bg-red-900/20 border border-red-900/50 rounded-lg p-6">
+                    <h3 class="text-xl font-bold text-red-400 mb-4">📝 12人預女獵白 - 玩家筆記</h3>
+                     <div class="space-y-4">
                         <div class="bg-slate-800 p-4 rounded border-l-4 border-purple-500">
-                            <h4 class="font-bold text-white">搞笑語錄</h4>
-                            <p class="text-slate-400 text-sm mt-1">「我真的是平民！我底牌壓制！」 —— 某位被公投出局的狼人。</p>
+                            <h4 class="font-bold text-white">標準賽制</h4>
+                            <p class="text-slate-400 text-sm mt-1">最看重邏輯與發言格式的板子。狼人需要打配合（如悍跳、衝鋒、倒鉤）。</p>
                         </div>
                     </div>
                 </div>
@@ -1094,25 +1225,33 @@
             }
         }
 
-        // 開啟子頁面 (遊戲流程或心得)
-        function openSubPage(type, boardName) {
+        // 開啟子頁面 (支援不同板子獨立內容)
+        function openSubPage(type, boardId, boardName) {
             const overlay = document.getElementById('subpage-overlay');
             const title = document.getElementById('subpage-title');
-            const contentFlow = document.getElementById('content-flow');
-            const contentReview = document.getElementById('content-review');
 
-            // 設定標題
+            // 1. 先隱藏所有的獨立內容區塊
+            const allDetails = document.querySelectorAll('.subpage-detail');
+            allDetails.forEach(el => el.classList.add('hidden'));
+
+            // 2. 設定標題
             if (type === 'flow') {
                 title.innerHTML = `<span class="text-slate-400 text-lg mr-2">遊戲流程：</span>${boardName}`;
-                contentFlow.classList.remove('hidden');
-                contentReview.classList.add('hidden');
             } else if (type === 'review') {
                 title.innerHTML = `<span class="text-slate-400 text-lg mr-2">遊玩心得：</span>${boardName}`;
-                contentReview.classList.remove('hidden');
-                contentFlow.classList.add('hidden');
             }
 
-            // 顯示覆蓋層
+            // 3. 根據傳入的 type 和 boardId 尋找對應的內容區塊並顯示
+            const targetId = `${type}-${boardId}`;
+            const targetContent = document.getElementById(targetId);
+            
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+            } else {
+                console.warn(`尚未建立對應的內容區塊: ${targetId}`);
+            }
+
+            // 4. 顯示覆蓋層
             overlay.classList.remove('hidden');
             overlay.classList.add('flex');
             document.body.style.overflow = 'hidden'; // 防止背景滾動

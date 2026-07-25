@@ -365,7 +365,7 @@
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
                         <h3 class="text-2xl font-bold text-red-600 tracking-wider">機械狼</h3>
-                        <span class="text-sm text-slate-500 uppercase tracking-widest"學習技能</span>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">學習技能</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
@@ -392,7 +392,7 @@
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
                         <h3 class="text-2xl font-bold text-red-600 tracking-wider">石像鬼</h3>
-                        <span class="text-sm text-slate-500 uppercase tracking-widest"狼版通靈師</span>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">狼版通靈師</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
@@ -413,7 +413,7 @@
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
                         <h3 class="text-2xl font-bold text-red-600 tracking-wider">夢魘</h3>
-                        <span class="text-sm text-slate-500 uppercase tracking-widest"讓你做惡夢</span>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">讓你做惡夢</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
@@ -430,6 +430,25 @@
 
             <!-- 好人陣營內容 -->
             <div id="char-tab-good" class="char-tab-content hidden-page space-y-6">
+                <!-- 角色卡: 平民 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/d1d5db?text=平民" alt="平民" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-300 tracking-wider">平民</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">靠推理盤出狼人</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (平民)
+                        【技能】
+                        沒有任何特殊技能。
+                        【核心】只能透過白天的發言、邏輯分析和玩家狀態來判斷誰是狼人，並在白天進行投票。平民是好人陣營的基石，擋刀與推理是主要任務。
+                    </div>
+                </div>
+                
                  <!-- 角色卡: 預言家 -->
                  <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
                     <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
@@ -438,14 +457,13 @@
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
                         <h3 class="text-2xl font-bold text-blue-400 tracking-wider">預言家</h3>
-                        <span class="text-sm text-slate-500 uppercase tracking-widest">Seer</span>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">每晚查驗一人</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
                         【陣營】好人陣營 (神職)
                         【技能】
                         每天夜裡可以查驗場上一名玩家的身分，法官會告知該玩家是「好人」還是「狼人」。
-                        無法查驗出該玩家的具體職業（例如：只能知道是好人，不知是平民還是女巫）。
                         【核心】好人陣營的資訊核心，通常需要在白天起跳（公開身分）報查驗，帶領好人找出狼人。
                     </div>
                 </div>
@@ -458,36 +476,35 @@
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
                         <h3 class="text-2xl font-bold text-purple-400 tracking-wider">女巫</h3>
-                        <span class="text-sm text-slate-500 uppercase tracking-widest">Witch</span>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">解藥與毒藥</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
                         【陣營】好人陣營 (神職)
                         【技能】
                         擁有一瓶解藥和一瓶毒藥。
-                        **解藥：** 夜裡可以救活被狼人殺害的玩家。
-                        **毒藥：** 夜裡可以毒死場上任意一名存活的玩家。
-                        【限制】一個晚上不能同時使用兩瓶藥。通常情況下，女巫整場遊戲只有首夜可以自救（用解藥救自己）。
+                        |解藥| 夜裡可以救活被狼人殺害的玩家。
+                        |毒藥| 夜裡可以毒死場上任意一名存活的玩家。
+                        【限制】一個晚上不能同時使用兩瓶藥。女巫不得自救。
                     </div>
                 </div>
 
-                <!-- 角色卡: 平民 -->
+                <!-- 角色卡: 獵人 -->
                 <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
                     <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
-                        <img src="https://placehold.co/120x120/1e293b/d1d5db?text=平民" alt="平民" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                        <img src="https://placehold.co/120x120/1e293b/a78bfa?text=獵人" alt="獵人" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
-                        <h3 class="text-2xl font-bold text-gray-300 tracking-wider">平民</h3>
-                        <span class="text-sm text-slate-500 uppercase tracking-widest">Villager</span>
+                        <h3 class="text-2xl font-bold text-green-400 tracking-wider">獵人</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">開槍帶人</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
-                        【陣營】好人陣營 (平民)
+                        【陣營】好人陣營 (神職)
                         【技能】
-                        沒有任何特殊技能。
-                        夜裡全程閉眼睡覺。
-                        【核心】只能透過白天的發言、邏輯分析和玩家狀態來判斷誰是狼人，並在白天進行投票。平民是好人陣營的基石，擋刀與推理是主要任務。
+                        若被狼刀或投票出局，可開槍帶走一名玩家。
+                        【限制】若被女巫毒殺，則無法發動技能。
                     </div>
                 </div>
             </div>

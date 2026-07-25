@@ -550,8 +550,49 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <!-- 板子 1 -->
                     <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700 relative overflow-hidden group hover:border-slate-500 transition">
-                        <div class="absolute top-0 right-0 bg-slate-700 text-xs px-3 py-1 rounded-bl-lg font-bold text-slate-300">新手推薦</div>
-                        <h4 class="text-xl font-bold text-red-400 mb-4">預女獵守</h4>
+                        <div class="absolute top-0 right-0 bg-slate-700 text-xs px-3 py-1 rounded-bl-lg font-bold text-slate-300">全員身分大亂鬥</div>
+                        <h4 class="text-xl font-bold text-red-400 mb-4">8人諸神黃昏</h4>
+                        
+                        <div class="mb-4">
+                            <span class="text-sm text-slate-500 block mb-1">【角色配置】</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">預言家 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">女巫 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">獵人 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">守衛 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">白癡 x1</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">黑狼王 x1</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">白狼王 x1</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">惡靈騎士 x1</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <span class="text-sm text-slate-500 block mb-1">【規則說明】</span>
+                            <p class="text-slate-300 text-sm leading-relaxed">屠城局。出局玩家須亮牌。</p>
+                        </div>
+
+                        <!-- 按鈕區 (置於右下角) -->
+                        <div class="absolute bottom-4 right-4 flex space-x-2">
+                            <button onclick="openSubPage('flow', '8人諸神黃昏')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', '8人諸神黃昏')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9人局 -->
+            <div class="mb-12">
+                <div class="flex items-center mb-6">
+                    <h3 class="text-2xl font-bold text-slate-200">9 人局</h3>
+                    <div class="ml-4 h-px bg-slate-700 flex-grow"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- 板子 1 -->
+                    <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700 relative overflow-hidden group hover:border-slate-500 transition">
+                        <div class="absolute top-0 right-0 bg-slate-700 text-xs px-3 py-1 rounded-bl-lg font-bold text-slate-300">全員身分大亂鬥</div>
+                        <h4 class="text-xl font-bold text-red-400 mb-4">9人基本局</h4>
                         
                         <div class="mb-4">
                             <span class="text-sm text-slate-500 block mb-1">【角色配置】</span>
@@ -560,19 +601,51 @@
                                 <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">女巫 x1</span>
                                 <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">獵人 x1</span>
                                 <span class="bg-gray-700/50 text-gray-300 px-2 py-1 rounded text-sm">平民 x3</span>
-                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">狼人 x2</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">狼人 x3</span>
                             </div>
                         </div>
 
                         <div class="mb-8">
                             <span class="text-sm text-slate-500 block mb-1">【規則說明】</span>
-                            <p class="text-slate-300 text-sm leading-relaxed">屠邊局。狼人殺光所有神職，或殺光所有平民即獲勝。好人需公投出所有狼人。無警長競選環節。女巫首夜不可自救。</p>
+                            <p class="text-slate-300 text-sm leading-relaxed">屠邊局，狼人隨時可翻牌自爆後進黑夜，有遺言。</p>
                         </div>
 
                         <!-- 按鈕區 (置於右下角) -->
                         <div class="absolute bottom-4 right-4 flex space-x-2">
-                            <button onclick="openSubPage('flow', '8人預女獵守')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
-                            <button onclick="openSubPage('review', '8人預女獵守')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                            <button onclick="openSubPage('flow', '9人基本局')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', '9人基本局')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
+                        </div>
+                    </div>
+
+                    <!-- 板子 2 -->
+                    <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700 relative overflow-hidden group hover:border-slate-500 transition">
+                        <div class="absolute top-0 right-0 bg-slate-700 text-xs px-3 py-1 rounded-bl-lg font-bold text-slate-300">全員身分大亂鬥</div>
+                        <h4 class="text-xl font-bold text-red-400 mb-4">9人諸神黃昏</h4>
+                        
+                        <div class="mb-4">
+                            <span class="text-sm text-slate-500 block mb-1">【角色配置】</span>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">預言家 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">女巫 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">獵人 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">守衛 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">獵魔人 x1</span>
+                                <span class="bg-blue-900/50 text-blue-300 px-2 py-1 rounded text-sm">白癡 x1</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">黑狼王 x1</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">白狼王 x1</span>
+                                <span class="bg-red-900/50 text-red-300 px-2 py-1 rounded text-sm">惡靈騎士 x1</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <span class="text-sm text-slate-500 block mb-1">【規則說明】</span>
+                            <p class="text-slate-300 text-sm leading-relaxed">屠城局。狼人殺光所有神職。好人需投出所有狼人。<br>出局玩家須亮牌。<br>【注意】本板獵魔人技能只能使用一次，且可封狼王技能。</p>
+                        </div>
+
+                        <!-- 按鈕區 (置於右下角) -->
+                        <div class="absolute bottom-4 right-4 flex space-x-2">
+                            <button onclick="openSubPage('flow', '9人諸神黃昏')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-lg shadow transition">遊戲流程</button>
+                            <button onclick="openSubPage('review', '9人諸神黃昏')" class="px-4 py-2 bg-red-900/80 hover:bg-red-800 text-white text-sm font-medium rounded-lg shadow transition">遊玩心得</button>
                         </div>
                     </div>
                 </div>

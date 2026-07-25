@@ -496,7 +496,7 @@
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
-                        <h3 class="text-2xl font-bold text-green-400 tracking-wider">獵人</h3>
+                        <h3 class="text-2xl font-bold text-yellow-400 tracking-wider">獵人</h3>
                         <span class="text-sm text-slate-500 uppercase tracking-widest">開槍帶人</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
@@ -515,7 +515,7 @@
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
-                        <h3 class="text-2xl font-bold text-yellow-400 tracking-wider">騎士</h3>
+                        <h3 class="text-2xl font-bold text-green-400 tracking-wider">騎士</h3>
                         <span class="text-sm text-slate-500 uppercase tracking-widest">選一人決鬥</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
@@ -536,7 +536,7 @@
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
-                        <h3 class="text-2xl font-bold text-Gold-400 tracking-wider">守衛</h3>
+                        <h3 class="text-2xl font-bold text[[#ffd700]] tracking-wider">守衛</h3>
                         <span class="text-sm text-slate-500 uppercase tracking-widest">選擇玩家守護</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
@@ -556,7 +556,7 @@
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
-                        <h3 class="text-2xl font-bold text-[#ffd700] tracking-wider">獵魔人</h3>
+                        <h3 class="text-2xl font-bold text-teal-400 tracking-wider">獵魔人</h3>
                         <span class="text-sm text-slate-500 uppercase tracking-widest">夜晚的騎士</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
@@ -588,6 +588,88 @@
                         (石像鬼是狼隊，所以也會顯示狼人)
                     </div>
                 </div>
+
+                <!-- 角色卡: 魔術師 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="魔術師.png" alt="魔術師" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-[#da70d6] tracking-wider">魔術師</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">夜間交換玩家身分</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        每晚可交換兩名玩家的身分(僅限當晚)。可以不換，但被換過的玩家當局遊戲不得再被交換。
+                        交換玩家可以包含自己。
+                        當夜，被交換的玩家所有的技能結算結果都會被交換。
+                        比如說，1(狼)和2(民)換。女巫毒1，那2會死；預言家查2會是狼人、查1會是好人。
+                        【注意】女巫的救人資訊不會被換，仍會顯示真正被刀的玩家
+                    </div>
+                </div>
+
+                <!-- 角色卡: 白癡 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="白癡.png" alt="白癡" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-[#ffc0cb] tracking-wider">白癡</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">票殺不會死</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        若在白天被投票出局，翻牌自證身分後不會出局，可留在場上繼續後續發言，但無投票權。
+                        【注意】部分板子白癡需要追刀，依各板規定。
+                    </div>
+                </div>
+
+                <!-- 角色卡: 攝夢人 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="攝夢人.png" alt="攝夢人" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-[#c71585] tracking-wider">攝夢人</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">做個好夢</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        每晚必須選擇一位玩家進入夢遊。該玩家免於當夜一切技能。
+                        意即，被狼刀不會死、被巫毒不會死。若女巫剛好救了他，也就會浪費一瓶解藥。
+                        若攝夢人死於夜裡，則夢遊玩家一併死亡。
+                        若有玩家連續兩晚進入夢遊，則會攝夢而死，隔早宣布死亡。
+                    </div>
+                </div>
+
+                <!-- 角色卡: 黑市商人 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/d1d5db?text=黑商" alt="黑市商人" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-[#9acd32] tracking-wider">黑市商人</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">選擇交易對象</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】好人陣營 (神職)
+                        【技能】
+                        第一晚可選擇交易對象，可給予對方「查驗一次」、「毒藥一瓶」、「獵槍一把」三選一。
+                        1. 若該玩家為好人，則對方成為「幸運兒」，可獲得黑市商人指定的技能。於下一晚開始可使用。
+                        2. 若該玩家為狼人，則黑市商人遭反噬淘汰。(狼人不會知道自己被選中)
+                    </div>
+                </div>
             </div>
 
             <!-- 第三方陣營內容 -->
@@ -600,17 +682,61 @@
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
                         <h3 class="text-2xl font-bold text-pink-400 tracking-wider">邱比特</h3>
-                        <span class="text-sm text-slate-500 uppercase tracking-widest">Cupid</span>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">愛神連線</span>
                     </div>
                     <div class="vertical-divider hidden md:block h-24"></div>
                     <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
-                        【陣營】視情況而定 (通常視為第三方)
+                        【陣營】第三方
                         【技能】
                         在遊戲的第一個晚上，必須指定兩名玩家成為「情侶」（也可以指定自己和另一名玩家）。
-                        【羈絆】情侶中若有一人死去，另一人必須殉情（跟著死去）。
+                        情侶中若有一人死去，另一人必須殉情。殉情方若有技能會被封印。
                         【獲勝條件】
-                        1. 若情侶為「好人+好人」或「狼人+狼人」，邱比特為好人陣營，獲勝條件同好人。
-                        2. 若情侶為「好人+狼人」（人狼戀），邱比特與情侶組成第三方陣營，必須殺光場上所有人（包括其他好人與狼人）才能獲勝。
+                        1. 若情侶為「好人+好人」，則邱比特為好人陣營，獲勝條件同好人。
+                        2. 若情侶為「狼人+狼人」，則邱比特為狼人陣營，獲勝條件同狼人。
+                        2. 若情侶為「好人+狼人」，邱比特與情侶組成第三方陣營，必須殺光場上所有人（包括其他好人與狼人）才能獲勝。
+                        【注意】當有第三方陣營時，好人與狼人也均需淘汰第三方陣營玩家才可獲勝。
+                    </div>
+                </div>
+
+                <!-- 角色卡: 盜賊 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="盜賊.png" alt="盜賊" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-[#afeeee] tracking-wider">盜賊</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">雙牌二選一</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】第三方
+                        【技能】
+                        遊戲開始前會先移除2張角色牌(若為n人局，則一開始會有n+2張牌)。
+                        盜賊先睜眼從移除的2張中選取一張遊玩。
+                        若兩張牌中有狼人，則必須選擇狼人遊玩。
+                    </div>
+                </div>
+
+                <!-- 角色卡: 殭屍 -->
+                <div class="char-card flex flex-col md:flex-row items-center p-4 rounded-xl">
+                    <div class="w-full md:w-32 h-32 flex-shrink-0 flex items-center justify-center mb-4 md:mb-0">
+                        <img src="https://placehold.co/120x120/1e293b/d1d5db?text=殭屍" alt="殭屍" class="rounded-lg object-cover w-full h-full border border-slate-600 shadow-md">
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="w-full md:w-40 flex-shrink-0 text-center md:text-left mb-2 md:mb-0">
+                        <h3 class="text-2xl font-bold text-[#afeeee] tracking-wider">殭屍</h3>
+                        <span class="text-sm text-slate-500 uppercase tracking-widest">感染所有人</span>
+                    </div>
+                    <div class="vertical-divider hidden md:block h-24"></div>
+                    <div class="flex-grow text-slate-300 leading-relaxed text-sm md:text-base whitespace-pre-line pl-0 md:pl-4">
+                        【陣營】第三方
+                        【技能】
+                        每晚可選擇0-2名玩家感染(不可感染自己)。感染玩家會睜眼確認彼此(不可交流)。
+                        殭屍被預言家查驗會顯示金水。
+                        殭屍睜眼在先，所以感染對象不受魔術師影響。
+                        【獲勝條件】場上剩餘所有玩家均被感染，則殭屍單獨獲勝。
+                        【注意】殭屍獲勝條件在先，若與好人或狼人方同時達成勝利條件，則由殭屍獲勝。
                     </div>
                 </div>
             </div>
